@@ -3,7 +3,7 @@ Implementation of Traveling Salesman Problem (TSP) using AI Genetic Algorithm (G
 
 The Traveling Salesperson Problem (TSP) is a classic optimization problem in computer science, where the goal is to find the shortest possible route that visits a given set of cities and returns to the starting city.
 
-  Because or its exponentional complexity the nature of the difficulty to the TSP problem is NP-Complete, meaning in a undirected complete graph of 100 nodes (K100 in graph theory) there will be (n*(n-1))/2=(100*(100-1))/2=4.950 weight edges connecting those nodes.
+  Because or its exponentional complexity the nature of the difficulty to the TSP problem is characterised as NP-Complete, meaning in a undirected complete graph of 100 nodes (K100 in graph theory) there will be (n*(n-1))/2=(100*(100-1))/2=4.950 weight edges connecting those nodes.
 
   Approaching with a  graph traversal algorithm finding the shortest path from a starting node to all other nodes like Dijstra or Prim, it must search all the available search space on a graph before reach its target node.There will be fuctorial 100! difeerent ways from start node visiting all nodes and find different routes beetween them.
   
