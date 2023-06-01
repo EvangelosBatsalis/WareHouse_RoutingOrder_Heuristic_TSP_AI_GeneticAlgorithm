@@ -22,7 +22,7 @@ A genetic algorithm is a search and optimization technique inspired by the proce
 
 ## Designing the genetic algorithm
 **State space or state graph design:**
-**Description:** There will be same implementation such as AI "Maze problem" scenario. Meaning the warehouse will be only one floor (n)x(m) matrix and it will have 1.000 storage places. Each storate location will be 1 meter distance and the corrindor will have 2 meter long on x axis and n meter long on y axis. The Start and the target location will be at the same point.
+**Description:** There will be same implementation such as AI "Maze problem" scenario. Meaning the warehouse will be only one floor (n)x(m) matrix and it will have 1.000 storage places. Each storate location will be 1 meter distance and the corrindor will have 2 meter long on x axis and m meter long on y axis. The Start and the target location will be at the same point.
 
 **Effector:**
 **Condition:** 
