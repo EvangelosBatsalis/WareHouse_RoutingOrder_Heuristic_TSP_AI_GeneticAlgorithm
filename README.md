@@ -1,4 +1,4 @@
-# WareHouse_RoutingOrder_Heuristic_TSP_AI_GeneticAlgorithm
+# WareHouse_RoutingOrder_Heuristic_TSP_AI_GeneticAlgorithm (under construction)
 Implementation of Traveling Salesman Problem (TSP) using AI Genetic Algorithm (GA) in Java.
 
 The Traveling Salesperson Problem (TSP) is a classic optimization problem in computer science, where the goal is to find the shortest possible route that visits a given set of cities and returns to the starting city.
@@ -20,5 +20,17 @@ A genetic algorithm is a search and optimization technique inspired by the proce
   
   The strength of genetic algorithms lies in their ability to explore a large search space efficiently, discovering good solutions even in the presence of complex and multi-dimensional problem landscapes.
 
-## Design the genetic algorithm
+## Designing the genetic algorithm
+**State space or state graph design:**
+**Description:** There will be same implementation such as AI "Maze problem" scenario. Meaning the warehouse will be only one floor (n)x(m) matrix and it will have 1.000 storage places. Each storate location will be 1 meter distance and the corrindor will have 2 meter long on x axis and n meter long on y axis. The Start and the target location will be at the same point.
 
+**Effector:**
+**Condition:** 
+**Result:**
+
+**Search Space description:**
+The graph will be implement with adjacency matrix (without graph feedback loop) and the rows 
+
+
+** TSP problem description: **
+must visit all the edges of the graph
