@@ -41,6 +41,9 @@ The graph will be implement with adjacency matrix (without graph feedback loop).
 **Encoding:** Vector of Integers wich represents the nodes.
 **Fitness evaluation:** F(x) = -F(x)+C. Where: - f(x) = sum of Manhatan or Euclidean distance. - C = (nodes) multiply by (max distance between two nodes)  
 **Genetic function:**
-Selection: Roulette Selection
-Crossover: Order Crossover (OX)
+
+Selection: Roulette Selection.
+
+Crossover: Order Crossover (OX).
+
 Mutation: Random swich places.
