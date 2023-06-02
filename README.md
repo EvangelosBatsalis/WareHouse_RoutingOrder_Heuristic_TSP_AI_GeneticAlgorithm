@@ -37,9 +37,13 @@ Down: Moving left by one spot (1 meter). Condition: X (diff) Max(array column si
 The graph will be implement with adjacency matrix (without graph feedback loop). 0 values at rows and columns means there is no path beetween nodes. Greater than 1 is the weight path connecting nodes.
 
 ## Designing TSP
+
 **Desciption:** - It will pass to each node only one times. -It will Start and finish at the same point. -It will have as fitness the minimization of the function (sum of Manhatan or Euclidean distance).
+
 **Encoding:** Vector of Integers wich represents the nodes.
+
 **Fitness evaluation:** F(x) = -F(x)+C. Where: - f(x) = sum of Manhatan or Euclidean distance. - C = (nodes) multiply by (max distance between two nodes)  
+
 **Genetic function:**
 
 Selection: Roulette Selection.
