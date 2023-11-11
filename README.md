@@ -1,49 +1,47 @@
-# WareHouse_RoutingOrder_Heuristic_TSP_AI_GeneticAlgorithm (under construction)
-Implementation of Traveling Salesman Problem (TSP) using AI Genetic Algorithm (GA) in Java.
+# Implementation of the Traveling Salesman Problem (TSP) Using a Genetic Algorithm (GA) in Java
+** Introduction to the Traveling Salesman Problem (TSP) **
+The Traveling Salesperson Problem (TSP) represents a classic challenge in the field of computer science, focusing on identifying the shortest possible route that visits a set of cities and returns to the origin. It's a pivotal problem in the domain of optimization and computational complexity.
 
-  The Traveling Salesperson Problem (TSP) is a classic optimization problem in computer science, where the goal is to find the shortest possible route that visits a given set of cities and returns to the starting city.
+** Complexity and Nature of TSP **
+The TSP is known for its exponential complexity, categorizing it as NP-Complete. To illustrate, consider an undirected complete graph with 100 nodes (K100 in graph theory), which yields 4,950 edges. Traditional graph traversal algorithms like Dijkstra's or minimum spanning tree algorithms (Prim's, Kruskal's) face the daunting task of exploring every possible route in such a vast search space. For instance, there are 100! (factorial 100) distinct routes in a 100-node graph.
 
-  Because of TSP exponentional complexity the nature of the difficulty for the TSP problem is characterised as NP-Complete. More specific, in a undirected complete graph of 100 nodes (K100 (k-vertex connected) in graph theory) there will be (n*(n-1))/2=(100*(100-1))/2=4.950 weight edges connecting those nodes. Therefore approaching with a graph traversal algorithm finding the shortest path(Dijstra) or minimum spanning tree(prim, Kruskal) from a starting node to all other nodes,the algorithms must search all the available different combinations a graph of tree before reach the target node. There will be fuctorial 100! difeerent ways from start node visiting all nodes and find different routes beetween them.. Another approach might be DFS or BFS but furthermore DFS might not found the solution because of local optimum trap and BFS will not find the optimal path at all. 
+However, these conventional methods face limitations:
 
- **My approach will be with genetic algorithm**
-**(small description):** A genetic algorithm is a search and optimization technique inspired by the process of natural selection and evolution(Charles Darwin). It is used to find approximate solutions to complex problems where traditional methods may be inefficient or impractical as we explained before.
+** Dijkstra's Algorithm ** might not be feasible due to the sheer number of combinations.
+** Depth-First Search (DFS) ** can fall into local optimum traps.
+** Breadth-First Search (BFS) ** often fails to find the optimal path.
 
-  The algorithm operates on a population of potential solutions, which are encoded as chromosomes of genes. Each chromosome represents a candidate solution to the problem. The genetic algorithm iteratively evolves this population through a process of selection, crossover, and mutation, mimicking the principles of natural selection.
+# Proposed Solution: Genetic Algorithm
+A genetic algorithm (GA) offers a robust alternative, drawing inspiration from the principles of natural selection and evolution, as proposed by Charles Darwin. This algorithm is particularly effective for problems where traditional approaches falter.
 
-  During each iteration, the algorithm evaluates the fitness of each chromosome based on how well it solves the problem. Chromosomes with higher fitness have a better chance of being selected for the next generation. Crossover combines genetic material from selected parents to create new offspring, while mutation introduces random changes to promote diversity.
-  
-  Over time, the population evolves, with fitter chromosomes being favored and less fit ones being gradually replaced. This evolutionary process continues until a termination criterion is met, such as reaching a maximum number of iterations or finding a satisfactory solution.
-  
-  The strength of genetic algorithms lies in their ability to explore a large search space efficiently, discovering good solutions even in the presence of complex and multi-dimensional problem landscapes.
+# Overview of Genetic Algorithm
+** Population and Chromosomes: The GA operates on a population of potential solutions, represented as chromosomes. **
+** Evolutionary Process: It involves selection, crossover, and mutation, mirroring natural selection. **
+** Fitness Evaluation: Solutions are evaluated for their 'fitness,' determining their likelihood of advancing to the next generation. **
+** Diversity through Mutation: Random mutations introduce variety, aiding the exploration of the solution space. **
 
-## Designing the genetic algorithm
-**State space or state graph design:**
-**Description:** There will be same implementation with AI "Maze problem" scenario. Meaning the warehouse will be only one floor (n)x(m) matrix and it will have 1.000 storage places. Each storage location will be 1 meter distance and the corrindor will have 2 meter on x->x axis and m meter long on y->y axis. The START and the Target location will be the same.
+# Strengths of Genetic Algorithms
+Genetic algorithms excel in navigating extensive and complex search spaces, often uncovering high-quality solutions even in challenging scenarios.
 
-**Effector:** An order at any location on {x,y} coordinates, the worker can have any specific actions: Left, Right, Down and Up. 
+# Designing the Genetic Algorithm for TSP
+** State Space and Graph Design **
+** Warehouse Layout: ** Modeled as a single-floor (n x m) matrix with 1,000 storage locations, spaced 1 meter apart. Corridors are 2 meters wide on the x-axis and m meters long on the y-axis.
+** Start and End Points: ** The journey begins and ends at the same location.
 
-Left: Moving left by one spot (1 meter). Condition: Y (diff) 1 and the spot is not block (corrindor). Result: Movement (X, Y-1).
-Right: Moving right by one spot (1 meter). Condition: Y (diff) Max(array column size)  and the spot is not block (corrindor). Result: Movement (X, Y+1).
-Up: Moving left by one spot (1 meter). Condition: X (diff) 1 and the spot is not block (corrindor). Result: Movement (X-1, Y).
-Down: Moving left by one spot (1 meter). Condition: X (diff) Max(array column size) and the spot is not block (corrindor). Result: Movement (X+1, Y).
+** Effectors and Movement Actions **
+Left, Right, Up, Down: Movements are defined by one-meter steps, subject to conditions like corridor accessibility.
 
-**heuristic function:** Manhatan or Euclidean distance
+** Heuristic Function **
+Manhattan or Euclidean Distance: Used to estimate the path cost.
 
-**Search Space description:**
-The graph will be implement with adjacency matrix (without graph feedback loop). 0 values at rows and columns means there is no path beetween nodes. Greater than 1 is the weight path connecting nodes.
+** Search Space ** 
+Adjacency Matrix Representation: This matrix will represent the graph, with '0' indicating no path and values greater than '1' representing path weights.
 
-## Designing TSP
+** Designing TSP Specifics **
+Constraints: The path must visit each node exactly once and return to the starting point.
+Fitness Function: The goal is to minimize the sum of distances (Manhattan or Euclidean) between nodes.
 
-**Desciption:** - It will pass to each node only one times. -It will Start and finish at the same point. -It will have as fitness the minimization of the function (sum of Manhatan or Euclidean distance).
-
-**Encoding:** Vector of Integers wich represents the nodes.
-
-**Fitness evaluation:** F(x) = -F(x)+C. Where: - f(x) = sum of Manhatan or Euclidean distance. - C = (nodes) multiply by (max distance between two nodes)  
-
-**Genetic function:**
-
-Selection: Roulette Selection.
-
+** Genetic Algorithm Functions **
+Selection: Roulette Wheel Selection.
 Crossover: Order Crossover (OX).
-
-Mutation: Random swich places.
+Mutation: Random swapping of positions.
